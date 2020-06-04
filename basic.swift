@@ -101,6 +101,7 @@ print(name4) // output : Optional("abc")
 //name2 = nil // nil -> 값이 없다.
 
 //optional binding ==> 값이 있으면 넣고 없으면 넘어가는 조건문
+// 햔번에 있는지 없는지 체크해준다생각
 if let temp = name3 {
     print(temp)
     print("this code not execute")
@@ -118,6 +119,38 @@ if let temp = name3, var temp2 = name4 {
     print("this code not execute")
 }
 
+//Optional 값 있을 수도 없을 수도.
+//
+
+var myScore: Int? = Int()
+
+myScore = 60
+
+//if( myScore < 100) { // error --> 값이 있을 지 없을 지 모름
+    
+//}
+
+//! force unwrapping
+if(myScore! < 100) {
+
+}
+
+// Unwrapping : 옵셔널을 벗겨내는 형태
+
+// Force Unwrapping ( 강제 )
+if myScore! < 100 {
+    // myScore 만약 nil이면 fail
+}
+//당연하게 nil check하는 코드 넣어야
+// optional binding 으로 처리. 자연스럽게 옵셔널을 벗겨냄
+
+if myScore == nil {
+    print("nil")
+} else if myScore! < 100 {
+    print("has score")
+}
+
+
 //optional chaining
 
 //temp code -> purpose : 이 배열이 빈 배열인지 검사하는 코드 작성
@@ -131,6 +164,20 @@ if let array = array, array.isEmpty {
 }
 
 // temp code --> optional chaining
+
+class People {
+    var score: Score?
+}
+
+class Score {
+    var testName: String?
+}
+
+var people: People? = People()
+people?.score?.testName // score나 testName 둘 중 하나만 nil이라도 값이 nil이 된다.
+if people!.score?.testName { // 값 확실하다면 ! forceunwrapping 가능 
+    hasName // ... 
+}
 
 let isEmptyArray2 = array?.isEmpty == true
 // array nil이면 nil을 return 하고 bool? 로 타입캐스팅되어 false
