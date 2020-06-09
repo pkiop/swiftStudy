@@ -1,8 +1,35 @@
 //import UIKit
-print("a")
 
-//function
-print("a")
+
+func sum(number1: Int, number2: Int) -> Int{
+    return number1 + number2
+}
+
+// 자리만 만들어 놓기
+func sum2(_ num1: Int, _ num2: Int) -> Int {
+    return num1 + num2
+}
+
+func sumAll(numbers: Int...) -> Int {
+    ///numbers // array type
+    var total = 0
+    for number in numbers {
+        total += number
+    }
+    return total
+}
+
+func sumreturnmany(_ num1: Int, _ num2: Int) -> (Int, Int, result: Int) {
+    return (num1, num2, num1 + num2)
+}
+
+print(sum(number1: 5, number2: 22))
+print(sum2(50, 20))
+print(sumAll(numbers: 4,5,6))
+print(sumreturnmany(1, 3))
+print(sumreturnmany(4, 5).result)
+
+
 func hello(name: String, time: Int) -> String {
     print(name, time)
     var string = ""
