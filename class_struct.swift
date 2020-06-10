@@ -1,3 +1,75 @@
+// Class inheritance
+
+// 스위프트 상당부분 copy함 . 참조가 아니라
+
+struct MyDesk {
+    var a = 10
+    func test() {
+        
+    }
+}
+//structure 는 상속이 없다.
+struct Soccer {
+    var homeScore = 0
+    var awayScore = 0
+    
+    func result() -> String {
+        return "\(homeScore)" + " : " + "\(awayScore)"
+    }
+}
+
+var soccer = Soccer()
+soccer.result()
+
+// 축구처럼 점수 내는게 아주 유사할 것
+class Baseball {
+    
+}
+
+class Football {
+    
+}
+
+// --- * --- //
+class ScoreBoard {
+    var homeScore = 0
+    var awayScore = 0
+    
+    func result() -> String {
+        return "\(homeScore)" + " : " + "\(awayScore)"
+    }
+}
+
+// 다 물려받음
+class Tennis: ScoreBoard {
+    
+}
+
+var tennis = Tennis()
+tennis.result()
+tennis.awayScore = 0
+tennis.homeScore = 15
+tennis.result()
+
+// override
+
+class Soccer2: ScoreBoard {
+    //result치고 엔터치면 자동완성
+    override func result() -> String {
+        return "\(homeScore)" + " - " + "\(awayScore)"
+    }
+}
+
+var soccer2 = Soccer2()
+var soccer3 = soccer2
+soccer2.result()
+soccer3.homeScore = 111
+soccer2.result()
+// 참조    : 주소
+// 값 복사
+
+
+
 //
 //class Animal {
 //    let numberOfLegs = 4
